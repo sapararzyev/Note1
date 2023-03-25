@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Note1</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">title</string>
+    <string name="me">me</string>
+    <string name="you">you</string>
+    <string name="fab">fab</string>
+    <string name="notes">notes</string>
+    <string name="second">second</string>
+    <string name="discription">Discription</string>
+    <string name="create">Note successfully create</string>
+    <string name="delete">Note successfully delete</string>
+    <string name="edit">Note successfully edit</string>
 </resources>
