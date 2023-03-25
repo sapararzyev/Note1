@@ -34,6 +34,7 @@ android {
 }
 
 dependencies {
+    implementation(project(:domain))
     //room
     implementation(Dependencies.Room.runtime)
     implementation(Dependencies.Room.ktx)x
