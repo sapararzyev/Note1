@@ -1,44 +1,68 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id(Plugins.AGP.application)
+    id(Plugins.Kotlin.android)
+    id(Plugins.Kotlin.kapt)
+    id(Plugins.DaggerHilt.hilt)
 }
 
 android {
-    namespace 'com.example.note1'
-    compileSdk 33
+    namespace = "com.example.noteapp"
+    compileSdk = AppConfig.comparableSdk
 
     defaultConfig {
-        applicationId "com.example.note1"
-        minSdk 24
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        applicationId = "com.example.noteapp"
+        minSdk = AppConfig.minSdk
+        targetSdk = AppConfig.targetSdk
+        versionCode = AppConfig.versionCode
+        versionName = AppConfig.versionName
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile
+                    ("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
+
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation(Dependencies.UI.core)
+    implementation(Dependencies.UI.appcompat)
+    implementation(Dependencies.UI.material)
+    implementation(Dependencies.UI.constraint)
+    testImplementation(Dependencies.UI.junit)
+    androidTestImplementation(Dependencies.UI.test)
+    androidTestImplementation(Dependencies.UI.espresso)
+
+    //room
+    implementation(Dependencies.Room.runtime)
+    implementation(Dependencies.Room.ktx)x
+    kapt(Dependencies.Room.room)
+
+    //DI Hilt
+    implementation(Dependencies.DaggerHilt.hilt)
+    kapt(Dependencies.DaggerHilt.compiler)
+
+    //Coroutine
+    implementation(Dependencies.Coroutine.coroutines)
+    implementation(Dependencies.Coroutine.viewmodel)
+    implementation(Dependencies.Coroutine.viewbindingpropertydelegate)
 }

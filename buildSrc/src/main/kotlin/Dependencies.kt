@@ -1,7 +1,6 @@
 object Plugins {
 
     object AGP{
-
         const val application ="com.android.application"
         const val library =  "com.android.library"
     }
@@ -73,8 +72,8 @@ object Versions {
     const val viewmodel = "2.6.0"
     const val viewbindingpropertydelegate = "1.5.8"
 
-    const val AGP = "7.3.1"
-    const val library = "7.4.2"
+    const val AGP = "7.2.0"
+    const val library = "7.2.0"
     const val android = "1.7.10"
     const val kotlin = "1.8.0"
 }
